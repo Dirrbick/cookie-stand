@@ -73,3 +73,47 @@ var dubaiCookieSales = {
 
 dubaiCookieSales.calculate();
 
+var parisCookieSales = {
+  minCustomersPerHour: 20,
+  maxCustomersPerHour: 38,
+  averageCookiesPerCust: 2.3,
+  customersPerHour: [],
+  cookiesPerHour: [],
+  totalCookiesPerDay: 0,
+
+  calculate: function() {
+    for (var i = 0; i < shopHours.length; i++){
+      var liEl = document.createElement('li');
+      liEl.textContent = `${shopHours[i]}: ${this.randomCookies(this.minCustomersPerHour, this.maxCustomersPerHour)} cookies`;
+      parisCookieShopElement.appendChild(liEl);
+    }
+  },
+  randomCookies: function(min, max) {
+    return Math.floor(Math.random() * (max - min) + min);
+  },
+};
+
+parisCookieSales.calculate();
+
+var limaCookieSales = {
+  minCustomersPerHour: 2,
+  maxCustomersPerHour: 16,
+  averageCookiesPerCust: 4.6,
+  customersPerHour: [],
+  cookiesPerHour: [],
+  totalCookiesPerDay: 0,
+
+  calculate: function() {
+    for (var i = 0; i < shopHours.length; i++){
+      var liEl = document.createElement('li');
+      liEl.textContent = `${shopHours[i]}: ${this.randomCookies(this.minCustomersPerHour, this.maxCustomersPerHour)} cookies`;
+      limaCookieShopElement.appendChild(liEl);
+    }
+  },
+  randomCookies: function(min, max) {
+    return Math.floor(Math.random() * (max - min) + min);
+  },
+};
+
+limaCookieSales.calculate();
+
