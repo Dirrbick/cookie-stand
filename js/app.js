@@ -51,3 +51,25 @@ var tokyoCookieSales = {
 
 tokyoCookieSales.calculate();
 
+var dubaiCookieSales = {
+  minCustomersPerHour: 11,
+  maxCustomersPerHour: 38,
+  averageCookiesPerCust: 3.7,
+  customersPerHour: [],
+  cookiesPerHour: [],
+  totalCookiesPerDay: 0,
+
+  calculate: function() {
+    for (var i = 0; i < shopHours.length; i++){
+      var liEl = document.createElement('li');
+      liEl.textContent = `${shopHours[i]}: ${this.randomCookies(this.minCustomersPerHour, this.maxCustomersPerHour)} cookies`;
+      dubaiCookieShopElement.appendChild(liEl);
+    }
+  },
+  randomCookies: function(min, max) {
+    return Math.floor(Math.random() * (max - min) + min);
+  },
+};
+
+dubaiCookieSales.calculate();
+
