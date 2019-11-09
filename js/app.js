@@ -23,8 +23,31 @@ var seattleCookieSales = {
     }
   },
   randomCookies: function(min, max) {
-    return Math.floor(Math.random() * Math.floor(min, max));
+    return Math.floor(Math.random() * (max - min) + min);
   },
 };
 
 seattleCookieSales.calculate();
+
+var tokyoCookieSales = {
+  minCustomersPerHour: 3,
+  maxCustomersPerHour: 24,
+  averageCookiesPerCust: 1.2,
+  customersPerHour: [],
+  cookiesPerHour: [],
+  totalCookiesPerDay: 0,
+
+  calculate: function() {
+    for (var i = 0; i < shopHours.length; i++){
+      var liEl = document.createElement('li');
+      liEl.textContent = `${shopHours[i]}: ${this.randomCookies(this.minCustomersPerHour, this.maxCustomersPerHour)} cookies`;
+      tokyoCookieShopElement.appendChild(liEl);
+    }
+  },
+  randomCookies: function(min, max) {
+    return Math.floor(Math.random() * (max - min) + min);
+  },
+};
+
+tokyoCookieSales.calculate();
+
