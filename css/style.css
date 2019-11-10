@@ -1,0 +1,32 @@
+html {
+  background-color: black;
+}
+
+header {
+  text-align: ;
+  font-size: 30px;
+  border:8px solid gray;
+  width: 25em;
+  height: 100px;
+  margin: 20px auto 10px auto;
+  background-color: salmon;
+}
+
+h1 {
+  text-align: center;
+  margin: 9px 0;
+  font-size: 40px;
+  font-weight: bold;
+  color: black;
+}
+
+nav {
+  text-align: center;
+}
+
+img {
+  float: right;
+  width: 275px;
+  height: 65px;
+  margin: 10px 8px 0 0
+}

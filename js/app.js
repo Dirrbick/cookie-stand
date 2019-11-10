@@ -1,5 +1,6 @@
 'use strict';
 
+//Here are all the shop element variables
 var seattleCookieShopElement = document.getElementById('seattleCookieShop');
 var tokyoCookieShopElement = document.getElementById('tokyoCookieShop');
 var dubaiCookieShopElement = document.getElementById('dubaiCookieShop');
@@ -7,12 +8,14 @@ var parisCookieShopElement = document.getElementById('parisCookieShop');
 var limaCookieShopElement = document.getElementById('limaCookieShop');
 var shopHours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
 
+//seattle cookie shop object
+//runs random numbers per hour and shows total at end
 var seattleCookieSales = {
   minCustomersPerHour: 23,
   maxCustomersPerHour: 65,
   averageCookiesPerCust: 6.3,
   totalCookiesPerDay: 0,
-
+//Needs a separate function to grab totals for end of array
   totalCookies: function() {
     var liEl = document.createElement('li');
     liEl.textContent = `Total: ${this.totalCookiesPerDay}`;
