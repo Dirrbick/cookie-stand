@@ -11,9 +11,8 @@ var seattleCookieSales = {
   minCustomersPerHour: 23,
   maxCustomersPerHour: 65,
   averageCookiesPerCust: 6.3,
-  customersPerHour: [],
-  cookiesPerHour: [],
   totalCookiesPerDay: 0,
+
 
   calculate: function() {
     for (var i = 0; i < shopHours.length; i++){
@@ -23,8 +22,10 @@ var seattleCookieSales = {
     }
   },
   randomCookies: function(min, max) {
-    return Math.floor(Math.random() * (max - min) + min);
+    return Math.floor((Math.random() * (max - min) + min) * this.averageCookiesPerCust);
   },
+
+
 };
 
 seattleCookieSales.calculate();
@@ -45,7 +46,8 @@ var tokyoCookieSales = {
     }
   },
   randomCookies: function(min, max) {
-    return Math.floor(Math.random() * (max - min) + min);
+    return Math.floor((Math.random() * (max - min) + min) * this.averageCookiesPerCust);
+
   },
 };
 
@@ -67,7 +69,8 @@ var dubaiCookieSales = {
     }
   },
   randomCookies: function(min, max) {
-    return Math.floor(Math.random() * (max - min) + min);
+    return Math.floor((Math.random() * (max - min) + min) * this.averageCookiesPerCust);
+
   },
 };
 
@@ -89,7 +92,8 @@ var parisCookieSales = {
     }
   },
   randomCookies: function(min, max) {
-    return Math.floor(Math.random() * (max - min) + min);
+    return Math.floor((Math.random() * (max - min) + min) * this.averageCookiesPerCust);
+
   },
 };
 
@@ -111,7 +115,8 @@ var limaCookieSales = {
     }
   },
   randomCookies: function(min, max) {
-    return Math.floor(Math.random() * (max - min) + min);
+    return Math.floor((Math.random() * (max - min) + min) * this.averageCookiesPerCust);
+
   },
 };
 
