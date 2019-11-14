@@ -1,9 +1,9 @@
 div {
-  display: inline-block;
-  border: 5px ridge gray;
+  /* display: inline-block; */
+  /* border: 5px ridge gray; */
   width: 12em;
   height: 28em;
-  background-color: salmon;
+  /* background-color: salmon; */
   font-size: 20px;
   margin: 30px;
   padding: 20px;
@@ -15,12 +15,12 @@ ul{
   /* line-height: normal; */
 }
 
-li {
+/* li {
   background: url(../images/fishCookieBullets.jpg) no-repeat left top;
   padding-left: 40px;
   padding-top: 2px;
   height: 30px;  
-}
+} */
 
 h2 {
   text-align: center;
