@@ -6,151 +6,243 @@ var tokyoCookieShopElement = document.getElementById('tokyoCookieShop');
 var dubaiCookieShopElement = document.getElementById('dubaiCookieShop');
 var parisCookieShopElement = document.getElementById('parisCookieShop');
 var limaCookieShopElement = document.getElementById('limaCookieShop');
-var shopHours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
+var shopHours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 
+function getRandom(min,max) {
+  return Math.floor(Math.random() * (max - min)) + min;
+}
 //seattle cookie shop object
 //runs random numbers per hour and shows total at end
 var seattleCookieSales = {
+  storeName: 'Pat\'s Salmon Cookies Seattle',
   minCustomersPerHour: 23,
   maxCustomersPerHour: 65,
   averageCookiesPerCust: 6.3,
+  cookiesSoldEachHour: [],
+  customerEachHour: [],
   totalCookiesPerDay: 0,
-//Needs a separate function to grab totals for end of array
-  totalCookies: function() {
-    var liEl = document.createElement('li');
-    liEl.textContent = `Total: ${this.totalCookiesPerDay}`;
-    seattleCookieShopElement.appendChild(liEl);
-  },
-  calculate: function() {
-    for (var i = 0; i < shopHours.length; i++){
-      var liEl = document.createElement('li');
-      liEl.textContent = `${shopHours[i]}: ${this.randomCookies(this.minCustomersPerHour, this.maxCustomersPerHour)} cookies`;
-      seattleCookieShopElement.appendChild(liEl);
+  //Needs a separate function to grab totals for end of array
+  calculateCustomers: function() {
+    for(var i = 0; i < shopHours.length; i ++){
+      var randomCustomer = getRandom(this.minCustomersPerHour, this.maxCustomersPerHour);
+      this.customerEachHour.push(randomCustomer);
     }
-    this.totalCookies();
   },
-  randomCookies: function(min, max) {
-    var cookies = Math.floor((Math.random() * (max - min) + min) * this.averageCookiesPerCust);
-    this.totalCookiesPerDay += cookies;
-    return cookies;
+  calculateCookies: function() {
+    for(var i = 0; i < this.customerEachHour.length; i ++ ) {
+      var cookies = Math.round(this.customerEachHour[i] * this.averageCookiesPerCust);
+      this.totalCookiesPerDay += cookies;
+      this.cookiesSoldEachHour.push(cookies);
+    }
   },
-
+  render: function() {
+    this.calculateCustomers();
+    this.calculateCookies();
+    var ulEl = document.createElement('ul');
+    var h2El = document.createElement('h2');
+    h2El.textContent = this.storeName;
+    seattleCookieShopElement.appendChild(h2El);
+    for(var i = 0; i < shopHours.length; i ++){
+      var liEl = document.createElement('li');
+      liEl.textContent = `${shopHours[i]}: ${this.cookiesSoldEachHour[i]} Cookies `;
+      ulEl.appendChild(liEl);
+    }
+    liEl = document.createElement('li');
+    liEl.textContent = `Total: ${this.totalCookiesPerDay}`;
+    ulEl.appendChild(liEl);
+    seattleCookieShopElement.appendChild(ulEl);
+  },
 };
-
-seattleCookieSales.calculate();
+seattleCookieSales.render();
 
 var tokyoCookieSales = {
+  storeName: 'Pat\'s Salmon Cookies Tokyo',
   minCustomersPerHour: 3,
   maxCustomersPerHour: 24,
   averageCookiesPerCust: 1.2,
+  cookiesSoldEachHour: [],
+  customerEachHour: [],
   totalCookiesPerDay: 0,
-
-  totalCookies: function() {
-    var liEl = document.createElement('li');
-    liEl.textContent = `Total: ${this.totalCookiesPerDay}`;
-    tokyoCookieShopElement.appendChild(liEl);
-  },
-  calculate: function() {
-    for (var i = 0; i < shopHours.length; i++){
-      var liEl = document.createElement('li');
-      liEl.textContent = `${shopHours[i]}: ${this.randomCookies(this.minCustomersPerHour, this.maxCustomersPerHour)} cookies`;
-      tokyoCookieShopElement.appendChild(liEl);
+  //Needs a separate function to grab totals for end of array
+  calculateCustomers: function() {
+    for(var i = 0; i < shopHours.length; i ++){
+      var randomCustomer = getRandom(this.minCustomersPerHour, this.maxCustomersPerHour);
+      this.customerEachHour.push(randomCustomer);
     }
-    this.totalCookies();
   },
-  randomCookies: function(min, max) {
-    var cookies = Math.floor((Math.random() * (max - min) + min) * this.averageCookiesPerCust);
-    this.totalCookiesPerDay += cookies;
-    return cookies;
+  calculateCookies: function() {
+    for(var i = 0; i < this.customerEachHour.length; i ++ ) {
+      var cookies = Math.round(this.customerEachHour[i] * this.averageCookiesPerCust);
+      this.totalCookiesPerDay += cookies;
+      this.cookiesSoldEachHour.push(cookies);
+    }
+  },
+  render: function() {
+    this.calculateCustomers();
+    this.calculateCookies();
+    var ulEl = document.createElement('ul');
+    var h2El = document.createElement('h2');
+    h2El.textContent = this.storeName;
+    tokyoCookieShopElement.appendChild(h2El);
+    for(var i = 0; i < shopHours.length; i ++){
+      var liEl = document.createElement('li');
+      liEl.textContent = `${shopHours[i]}: ${this.cookiesSoldEachHour[i]} Cookies `;
+      ulEl.appendChild(liEl);
+    }
+    liEl = document.createElement('li');
+    liEl.textContent = `Total: ${this.totalCookiesPerDay}`;
+    ulEl.appendChild(liEl);
+    tokyoCookieShopElement.appendChild(ulEl);
   },
 };
-
-tokyoCookieSales.calculate();
+tokyoCookieSales.render();
 
 var dubaiCookieSales = {
+  storeName: 'Pat\'s Salmon Cookies Dubai',
   minCustomersPerHour: 11,
   maxCustomersPerHour: 38,
   averageCookiesPerCust: 3.7,
+  cookiesSoldEachHour: [],
+  customerEachHour: [],
   totalCookiesPerDay: 0,
-
-  totalCookies: function() {
-    var liEl = document.createElement('li');
-    liEl.textContent = `Total: ${this.totalCookiesPerDay}`;
-    dubaiCookieShopElement.appendChild(liEl);
-  },
-
-  calculate: function() {
-    for (var i = 0; i < shopHours.length; i++){
-      var liEl = document.createElement('li');
-      liEl.textContent = `${shopHours[i]}: ${this.randomCookies(this.minCustomersPerHour, this.maxCustomersPerHour)} cookies`;
-      dubaiCookieShopElement.appendChild(liEl);
+  //Needs a separate function to grab totals for end of array
+  calculateCustomers: function() {
+    for(var i = 0; i < shopHours.length; i ++){
+      var randomCustomer = getRandom(this.minCustomersPerHour, this.maxCustomersPerHour);
+      this.customerEachHour.push(randomCustomer);
     }
-    this.totalCookies();
   },
-  randomCookies: function(min, max) {
-    var cookies = Math.floor((Math.random() * (max - min) + min) * this.averageCookiesPerCust);
-    this.totalCookiesPerDay += cookies;
-    return cookies;
+  calculateCookies: function() {
+    for(var i = 0; i < this.customerEachHour.length; i ++ ) {
+      var cookies = Math.round(this.customerEachHour[i] * this.averageCookiesPerCust);
+      this.totalCookiesPerDay += cookies;
+      this.cookiesSoldEachHour.push(cookies);
+    }
+  },
+  render: function() {
+    this.calculateCustomers();
+    this.calculateCookies();
+    var ulEl = document.createElement('ul');
+    var h2El = document.createElement('h2');
+    h2El.textContent = this.storeName;
+    dubaiCookieShopElement.appendChild(h2El);
+    for(var i = 0; i < shopHours.length; i ++){
+      var liEl = document.createElement('li');
+      liEl.textContent = `${shopHours[i]}: ${this.cookiesSoldEachHour[i]} Cookies `;
+      ulEl.appendChild(liEl);
+    }
+    liEl = document.createElement('li');
+    liEl.textContent = `Total: ${this.totalCookiesPerDay}`;
+    ulEl.appendChild(liEl);
+    dubaiCookieShopElement.appendChild(ulEl);
   },
 };
-
-dubaiCookieSales.calculate();
+dubaiCookieSales.render();
 
 var parisCookieSales = {
+  storeName: 'Pat\'s Salmon Cookies Paris',
   minCustomersPerHour: 20,
   maxCustomersPerHour: 38,
   averageCookiesPerCust: 2.3,
+  cookiesSoldEachHour: [],
+  customerEachHour: [],
   totalCookiesPerDay: 0,
-
-  totalCookies: function() {
-    var liEl = document.createElement('li');
-    liEl.textContent = `Total: ${this.totalCookiesPerDay}`;
-    parisCookieShopElement.appendChild(liEl);
-  },
-
-  calculate: function() {
-    for (var i = 0; i < shopHours.length; i++){
-      var liEl = document.createElement('li');
-      liEl.textContent = `${shopHours[i]}: ${this.randomCookies(this.minCustomersPerHour, this.maxCustomersPerHour)} cookies`;
-      parisCookieShopElement.appendChild(liEl);
+  //Needs a separate function to grab totals for end of array
+  calculateCustomers: function() {
+    for(var i = 0; i < shopHours.length; i ++){
+      var randomCustomer = getRandom(this.minCustomersPerHour, this.maxCustomersPerHour);
+      this.customerEachHour.push(randomCustomer);
     }
-    this.totalCookies();
   },
-  randomCookies: function(min, max) {
-    var cookies = Math.floor((Math.random() * (max - min) + min) * this.averageCookiesPerCust);
-    this.totalCookiesPerDay += cookies;
-    return cookies;
+  calculateCookies: function() {
+    for(var i = 0; i < this.customerEachHour.length; i ++ ) {
+      var cookies = Math.round(this.customerEachHour[i] * this.averageCookiesPerCust);
+      this.totalCookiesPerDay += cookies;
+      this.cookiesSoldEachHour.push(cookies);
+    }
+  },
+  render: function() {
+    this.calculateCustomers();
+    this.calculateCookies();
+    var ulEl = document.createElement('ul');
+    var h2El = document.createElement('h2');
+    h2El.textContent = this.storeName;
+    parisCookieShopElement.appendChild(h2El);
+    for(var i = 0; i < shopHours.length; i ++){
+      var liEl = document.createElement('li');
+      liEl.textContent = `${shopHours[i]}: ${this.cookiesSoldEachHour[i]} Cookies `;
+      ulEl.appendChild(liEl);
+    }
+    liEl = document.createElement('li');
+    liEl.textContent = `Total: ${this.totalCookiesPerDay}`;
+    ulEl.appendChild(liEl);
+    parisCookieShopElement.appendChild(ulEl);
   },
 };
-
-parisCookieSales.calculate();
+parisCookieSales.render();
 
 var limaCookieSales = {
+  storeName: 'Pat\'s Salmon Cookies Lima',
   minCustomersPerHour: 2,
   maxCustomersPerHour: 16,
   averageCookiesPerCust: 4.6,
+  cookiesSoldEachHour: [],
+  customerEachHour: [],
   totalCookiesPerDay: 0,
-
-  totalCookies: function() {
-    var liEl = document.createElement('li');
-    liEl.textContent = `Total: ${this.totalCookiesPerDay}`;
-    limaCookieShopElement.appendChild(liEl);
-  },
-
-  calculate: function() {
-    for (var i = 0; i < shopHours.length; i++){
-      var liEl = document.createElement('li');
-      liEl.textContent = `${shopHours[i]}: ${this.randomCookies(this.minCustomersPerHour, this.maxCustomersPerHour)} cookies`;
-      limaCookieShopElement.appendChild(liEl);
+  //Needs a separate function to grab totals for end of array
+  calculateCustomers: function() {
+    for(var i = 0; i < shopHours.length; i ++){
+      var randomCustomer = getRandom(this.minCustomersPerHour, this.maxCustomersPerHour);
+      this.customerEachHour.push(randomCustomer);
     }
-    this.totalCookies();
   },
-  randomCookies: function(min, max) {
-    var cookies = Math.floor((Math.random() * (max - min) + min) * this.averageCookiesPerCust);
-    this.totalCookiesPerDay += cookies;
-    return cookies;
+  calculateCookies: function() {
+    for(var i = 0; i < this.customerEachHour.length; i ++ ) {
+      var cookies = Math.round(this.customerEachHour[i] * this.averageCookiesPerCust);
+      this.totalCookiesPerDay += cookies;
+      this.cookiesSoldEachHour.push(cookies);
+    }
+  },
+  render: function() {
+    this.calculateCustomers();
+    this.calculateCookies();
+    var ulEl = document.createElement('ul');
+    var h2El = document.createElement('h2');
+    h2El.textContent = this.storeName;
+    limaCookieShopElement.appendChild(h2El);
+    for(var i = 0; i < shopHours.length; i ++){
+      var liEl = document.createElement('li');
+      liEl.textContent = `${shopHours[i]}: ${this.cookiesSoldEachHour[i]} Cookies `;
+      ulEl.appendChild(liEl);
+    }
+    liEl = document.createElement('li');
+    liEl.textContent = `Total: ${this.totalCookiesPerDay}`;
+    ulEl.appendChild(liEl);
+    limaCookieShopElement.appendChild(ulEl);
   },
 };
+limaCookieSales.render();
 
-limaCookieSales.calculate();
+
+// render: function() {
+//   var h2El = document.createElement('h2');
+//   var ulEl = document.createElement('ul');
+//   h2El.textContent = `${this.storeName}`;
+//   seattleCookieShopElement.appendChild(h2El);
+//   for (var i = 0; i < shopHours.length; i++){
+//     var liEl = document.createElement('li');
+//     liEl.textContent = `${shopHours[i]}: ${this.randomCookies(this.minCustomersPerHour, this.maxCustomersPerHour)}
+//      cookies`;
+//     ulEl.appendChild(liEl);
+//   }
+//   liEl = document.createElement('li');
+//   liEl.textContent = `Total: ${this.totalCookiesPerDay}`;
+//   ulEl.appendChild(liEl);
+// },
+// randomCookies: function(min, max) {
+//   var cookies = Math.floor((Math.random() * (max - min) + min) * this.averageCookiesPerCust);
+//   this.totalCookiesPerDay += cookies;
+//   return cookies;
+// },
+
 
