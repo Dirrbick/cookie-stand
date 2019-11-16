@@ -76,12 +76,35 @@ ListStores.prototype.renderStoreRow = function() {
   ListStores.tableEl.appendChild(trEl);
 };
 
+var renderFooter = function() {
+  var trEl = document.createElement('tr');
+  var tdEl = document.createElement('td');
+  tdEl.textContent = 'Hourly Totals';
+  trEl.appendChild(tdEl);
 
+  for(var i = 0; i < ListStores.shopHours.length; i++) {
+    var storingHourlyTotals = 0;
+    var tdEl = document.createElement('td');
 
+    for(var j = 0; j < ListStores.allStores.length; j++) {
+      storingHourlyTotals += ListStores.allStores[j].hourlyCookiesTotal[i];
+    }
+    tdEl.textContent = storingHourlyTotals;
+    trEl.appendChild(tdEl);
+  }
 
+  var tdElem = document.createElement('td');
+  tdElem.textContent = ListStores.allStoresTotal;
+  trEl.appendChild(tdElem);
+  ListStores.tableEl.appendChild(trEl);
+};
 
 new ListStores('Seattle', '23', '65', '6.3');
-
+new ListStores('Tokyo', '3', '24', '1.2');
+new ListStores('Dubai', '11', '38', '3.7');
+new ListStores('Paris', '20', '38', '2.3');
+new ListStores('Lima', '2', '16', '4.6');
+renderFooter();
 //get a render function
 //create table
 
