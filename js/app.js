@@ -9,7 +9,7 @@ function getRandom(min,max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 var tbodyEl = document.createElement('tbody');
-createTable.appendChild(tbodyEl);
+// createTable.appendChild(tbodyEl);
 
 function Store(city, minCust, maxCust, avg) {
   this.cityName = city;
@@ -57,7 +57,6 @@ function Store(city, minCust, maxCust, avg) {
 // };
 
 new Store('Seattle', '23', '65', '6.3');
-console.log(allStores);
 //seattle cookie shop object
 //runs random numbers per hour and shows total at end
 // var seattleCookieSales = {
