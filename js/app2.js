@@ -40,6 +40,24 @@ ListStores.prototype.generateHourlyCookies = function () {
   }
 };
 
+var renderHeader = function() {
+  var trEl = document.createElement('tr');
+  var thEl = document.createElement('th');
+  thEl.textContent = 'Location';
+  trEl.appendChild(thEl);
+
+  for(var i = 0; i < ListStores.shopHours.length; i++) {
+    var tdEl = document.createElement('td');
+    tdEl.textContent = ListStores.shopHours[i];
+    trEl.appendChild(tdEl);
+  }
+  var tdElem = document.createElement('td');
+  tdElem.textContent = 'Total';
+  trEl.appendChild(tdElem);
+  ListStores.tableEl.appendChild(trEl);
+};
+renderHeader();
+new ListStores('Seattle', '23', '65', '6.3');
 
 //get a render function
 //create table
