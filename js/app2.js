@@ -22,7 +22,7 @@ function ListStores(cityName, minCustomer, maxCustomer, averageCookies) {
   ListStores.allStores.push(this);
 
   this.generateHourlyCookies();
-  // this.renderShopRow();
+  this.renderStoreRow();
 }
 
 // console.log(Store.run);
@@ -57,6 +57,29 @@ var renderHeader = function() {
   ListStores.tableEl.appendChild(trEl);
 };
 renderHeader();
+
+
+ListStores.prototype.renderStoreRow = function() {
+  var trEl = document.createElement('tr');
+  var thEl = document.createElement('th');
+  thEl.textContent = this.cityName;
+  trEl.appendChild(thEl);
+
+  for(var i = 0; i < this.hourlyCookiesTotal.length; i++) {
+    var tdEl = document.createElement('td');
+    tdEl.textContent = this.hourlyCookiesTotal[i];
+    trEl.appendChild(tdEl);
+  }
+  var tdElem = document.createElement('td');
+  tdElem.textContent = this.totalCookiesPerDay;
+  trEl.appendChild(tdElem);
+  ListStores.tableEl.appendChild(trEl);
+};
+
+
+
+
+
 new ListStores('Seattle', '23', '65', '6.3');
 
 //get a render function
