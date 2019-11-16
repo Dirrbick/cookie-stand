@@ -105,6 +105,9 @@ new ListStores('Dubai', '11', '38', '3.7');
 new ListStores('Paris', '20', '38', '2.3');
 new ListStores('Lima', '2', '16', '4.6');
 renderFooter();
+
+
+var enterNewStore = document.getElementById('new-store');
 //get a render function
 //create table
 
