@@ -108,7 +108,19 @@ renderFooter();
 
 
 var enterNewStore = document.getElementById('new-store');
-//get a render function
-//create table
+enterNewStore.addEventListener('submit', handleSubmit);
 
+function handleSubmit(event) {
+  event.preventDefault();
+
+  var city = event.target.inputCityName.value;
+  var minCust = event.target.inputMinCust.value;
+  var maxCust = event.target.inputMaxCust.value;
+  var avgCookies = event.target.inputAvgCookies.value;
+  console.log('city: ', city);
+  console.log('minCust: ', minCust);
+  console.log('maxCust: ', maxCust);
+  console.log('avgCookies: ', avgCookies);
+
+}
 

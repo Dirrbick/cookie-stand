@@ -23,9 +23,23 @@ ul{
 } */
 
 h2 {
-  text-align: center;
+  text-align: left;
   text-decoration: underline;
   padding-bottom: 12px;
   font-size: x-large;
   font-weight: bold;
+}
+
+form {
+  display: block; 
+  width: 375px;
+}
+
+fieldset {
+  display: block;
+}
+
+input {
+  display: block;
+  word-break: break-all;
 }
