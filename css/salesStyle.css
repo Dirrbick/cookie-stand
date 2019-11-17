@@ -1,27 +1,16 @@
-div {
-  /* display: inline-block; */
-  /* border: 5px ridge gray; */
-  width: 12em;
-  height: 28em;
-  /* background-color: salmon; */
-  font-size: 20px;
-  margin: 30px;
-  padding: 20px;
-  line-height: 1.34em;
-}
 /* https://techforluddites.com/replacing-list-bullets-with-images-using-css/  image bullets*/
 ul{
   letter-spacing: normal;
   /* line-height: normal; */
 }
+.pageWrap{
+    width: 85em;
+    margin: 0 auto;
+}
 
-/* li {
-  background: url(../images/fishCookieBullets.jpg) no-repeat left top;
-  padding-left: 40px;
-  padding-top: 2px;
-  height: 30px;  
-} */
-
+div {
+  display: inline-block;
+}
 h2 {
   text-align: left;
   text-decoration: underline;
@@ -35,13 +24,14 @@ section {
   padding-left: 20px;
   padding-top: 14px;
   padding-bottom: 24px;
-  background: blue;
+  background: salmon;
   font-weight: bold;
-  margin: 10px 15%;
+  margin: 45px 5px 10px 10px;
+  float: left;
 }
 form {
   display: block; 
-  width: 375px;
+  width: 350px;
 }
 
 fieldset {
@@ -55,11 +45,13 @@ input {
 
 table {
   text-align: center;
-  width: 75%;
+  width: 50em;
   height: 20em;
   background: gray;
   border: ridge 10px orangered;
-  margin: 10px 12% 15px 12%;
+  margin: 10px 0 15px 70px;
+  float: left;
+  
 }
 th, td {
   border: solid 1px orangered;
