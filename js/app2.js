@@ -105,7 +105,21 @@ new ListStores('Dubai', '11', '38', '3.7');
 new ListStores('Paris', '20', '38', '2.3');
 new ListStores('Lima', '2', '16', '4.6');
 renderFooter();
-//get a render function
-//create table
 
+
+var enterNewStore = document.getElementById('new-store');
+enterNewStore.addEventListener('submit', handleSubmit);
+
+
+function handleSubmit(event) {
+  event.preventDefault();
+  var city = event.target.inputCityName.value;
+  var minCust = event.target.inputMinCust.value;
+  var maxCust = event.target.inputMaxCust.value;
+  var avgCookies = event.target.inputAvgCookies.value;
+  var removeFooter = document.getElementById('storeConstructor').lastChild;
+  removeFooter.remove();
+  new ListStores(city, minCust, maxCust, avgCookies);
+  renderFooter();
+}
 
