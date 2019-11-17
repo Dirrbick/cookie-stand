@@ -29,7 +29,16 @@ h2 {
   font-size: x-large;
   font-weight: bold;
 }
-
+section {
+  border: ridge 3px gray;
+  width: 23em;
+  padding-left: 20px;
+  padding-top: 14px;
+  padding-bottom: 24px;
+  background: blue;
+  font-weight: bold;
+  margin: 10px 15%;
+}
 form {
   display: block; 
   width: 375px;
@@ -42,4 +51,20 @@ fieldset {
 input {
   display: block;
   word-break: break-all;
+}
+
+table {
+  text-align: center;
+  width: 75%;
+  height: 20em;
+  background: gray;
+  border: ridge 10px orangered;
+  margin: 10px 12% 15px 12%;
+}
+th, td {
+  border: solid 1px orangered;
+}
+th {
+  width: 7em;
+  font-weight: bolder;
 }
