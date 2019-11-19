@@ -48,12 +48,19 @@ input {
 table {
   text-align: center;
   width: 50em;
-  height: 20em;
+  height: auto;
   background: gray;
   border: ridge 10px orangered;
   margin: 10px 0 15px 70px;
   float: left;
   
+}
+
+tr {
+  height: 2.3em;
+}
+td {
+  width: 2.3em;
 }
 th, td {
   border: solid 1px orangered;
