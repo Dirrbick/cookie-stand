@@ -121,5 +121,9 @@ function handleSubmit(event) {
   removeFooter.remove();
   new ListStores(city, minCust, maxCust, avgCookies);
   renderFooter();
+  event.target.inputCityName.value = null;
+  event.target.inputMinCust.value = null;
+  event.target.inputMaxCust.value = null;
+  event.target.inputAvgCookies.value = null;
 }
 

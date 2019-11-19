@@ -8,6 +8,8 @@ ul{
     margin: 0 auto;
 }
 
+
+/* look up z-index */
 div {
   display: inline-block;
 }
