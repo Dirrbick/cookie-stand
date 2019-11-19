@@ -78,9 +78,9 @@ ListStores.prototype.renderStoreRow = function() {
 
 var renderFooter = function() {
   var trEl = document.createElement('tr');
-  var tdEl = document.createElement('td');
-  tdEl.textContent = 'Hourly Totals';
-  trEl.appendChild(tdEl);
+  var thEl = document.createElement('th');
+  thEl.textContent = 'Hourly Totals';
+  trEl.appendChild(thEl);
 
   for(var i = 0; i < ListStores.shopHours.length; i++) {
     var storingHourlyTotals = 0;
@@ -121,5 +121,9 @@ function handleSubmit(event) {
   removeFooter.remove();
   new ListStores(city, minCust, maxCust, avgCookies);
   renderFooter();
+  event.target.inputCityName.value = null;
+  event.target.inputMinCust.value = null;
+  event.target.inputMaxCust.value = null;
+  event.target.inputAvgCookies.value = null;
 }
 
