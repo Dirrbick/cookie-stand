@@ -39,7 +39,7 @@ ListStores.prototype.generateHourlyCookies = function () {
     ListStores.allStoresTotal += cookie;
   }
 };
-
+//check out 1hr into frontrow
 var renderHeader = function() {
   var trEl = document.createElement('tr');
   var thEl = document.createElement('th');
@@ -121,6 +121,9 @@ function handleSubmit(event) {
   removeFooter.remove();
   new ListStores(city, minCust, maxCust, avgCookies);
   renderFooter();
+  //form.reset(); resets instead of using all of the code below
+  // var formName = getelement by id()
+  // formName.reset();
   event.target.inputCityName.value = null;
   event.target.inputMinCust.value = null;
   event.target.inputMaxCust.value = null;

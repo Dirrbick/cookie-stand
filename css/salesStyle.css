@@ -3,12 +3,6 @@ ul{
   letter-spacing: normal;
   /* line-height: normal; */
 }
-.pageWrap{
-    width: 85em;
-    margin: 0 auto;
-}
-
-
 /* look up z-index */
 div {
   display: inline-block;
@@ -26,7 +20,7 @@ section {
   padding-left: 20px;
   padding-top: 14px;
   padding-bottom: 24px;
-  background: salmon;
+  background: rgb(133, 39, 29);
   font-weight: bold;
   margin: 45px 5px 10px 10px;
   float: left;
@@ -62,6 +56,7 @@ tr {
 td {
   width: 2.3em;
 }
+
 th, td {
   border: solid 1px orangered;
 }
