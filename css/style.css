@@ -1,32 +1,73 @@
 html {
-  background-color: black;
-}
-
-header {
-  text-align: ;
-  font-size: 30px;
-  border:8px solid gray;
-  width: 25em;
-  height: 100px;
-  margin: 20px auto 10px auto;
   background-color: salmon;
-}
+  width: 900px;
+  margin: 0 auto 60px auto;
 
+}
+header {
+  background-color: sienna;
+  height: 70px;
+  border-bottom: 20px ridge brown;
+  margin: 10px 0 30px 0;
+}
 h1 {
   text-align: center;
-  margin: 9px 0;
-  font-size: 40px;
   font-weight: bold;
-  color: black;
+  font-size: 32pt;
 }
-
 nav {
   text-align: center;
 }
-
-img {
+header>img {
   float: right;
-  width: 275px;
-  height: 65px;
-  margin: 10px 8px 0 0
+  width: 115px;
+  height: 30px;
+  margin: 15px 15px;
+  position: absolute;
 }
+.cookie {
+  width: 30px;
+  height: 25px;
+}
+.family {
+  width: 280px;
+  height: 280px;
+  background-color: gray;
+  margin-top: 80px;
+
+}
+
+body>main>img {
+  width: 350px;
+  margin: 0 25px; 
+}
+
+.shopInfo {
+  width: 230px;
+  float: right;
+  margin-top: 100px;
+  background-color: rgb(143, 32, 13);
+  border: 5px ridge brown;
+  font-size: 14pt;
+}
+li {
+  list-style-image: url(../images/fishCookieBullets.jpg);
+  list-style-position: inside;
+  padding-left: 5px;
+}
+h2 {
+  font-weight: bold;
+  text-decoration: underline;
+  text-align: center;
+}
+body>main>div>img {
+  width: 250px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+div {
+float: left;
+}
+
+
